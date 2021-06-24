@@ -71,10 +71,10 @@ public class UserDAO {
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				User u = new User();
-				u.setId(rs.getInt("id"));
-				u.setName(rs.getString("name"));
-				u.setEmail(rs.getString("email"));
+				user.setId(rs.getInt("id"));
+				user.setName(rs.getString("name"));
+				user.setEmail(rs.getString("email"));
+
 			}
 		}
 		catch (Exception e) {
