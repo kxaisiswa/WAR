@@ -82,4 +82,18 @@ public class UserDAO {
 		}
 		return user;
 	}
+
+	public void updateuser(User user) {
+		try {
+			con = DBConnection.getConnection();
+			ps = con.prepareStatement("UPDATE person SET name = ?, email = ? WHERE id = ?");
+			ps.setString(1, user.getName());
+			ps.setString(2, user.getEmail());
+			ps.setInt(3, user.getId());
+			ps.execute();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

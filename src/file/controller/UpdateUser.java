@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import file.dao.UserDAO;
+import file.model.User;
 
-@WebServlet("/ViewUser")
-public class ViewUser extends HttpServlet {
+@WebServlet("/UpdateUser")
+public class UpdateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDAO udao;
-	public ViewUser() {
+	public UpdateUser() {
 			super();
 			udao = new UserDAO();
 	}
@@ -23,5 +24,15 @@ public class ViewUser extends HttpServlet {
 		request.setAttribute("user", UserDAO.viewuser(updid));
 		RequestDispatcher view = request.getRequestDispatcher("ViewUser.jsp");
 		view.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		User updateduser = new User();
+
+		updateduser.setId(Integer.parseInt(request.getParameter("id")));
+		updateduser.setName(request.getParameter("name"));
+		updateduser.setEmail(request.getParameter("email"));
+
+		UserDAO.updateuser(updateduser);
 	}
 }
