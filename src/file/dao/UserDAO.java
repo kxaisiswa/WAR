@@ -61,4 +61,24 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public static User viewuser(int updid) {
+		User user = new User();
+		try {
+			con = DBConnection.getConnection();
+			ps = con.prepareStatement("SELECT * FROM person WHERE id = ?");
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				User u = new User();
+				u.setId(rs.getInt("id"));
+				u.setName(rs.getString("name"));
+				u.setEmail(rs.getString("email"));
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
 }
