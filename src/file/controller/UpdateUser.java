@@ -33,6 +33,6 @@ public class UpdateUser extends HttpServlet {
 		updateduser.setName(request.getParameter("name"));
 		updateduser.setEmail(request.getParameter("email"));
 
-		UserDAO.updateuser(updateduser);
+		udao.updateuser(updateduser);
 	}
 }
