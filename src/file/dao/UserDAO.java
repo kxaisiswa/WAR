@@ -49,4 +49,16 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public void deleteuser(int delid) {
+		try {
+			con = DBConnection.getConnection();
+			ps = con.prepareStatement("DELETE FROM person WHERE id = ?");
+			ps.setInt(1, delid);
+			ps.execute();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

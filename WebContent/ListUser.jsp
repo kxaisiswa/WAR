@@ -20,14 +20,14 @@
 			<th>Name</th>
 			<th>Email</th>
 		</tr>
-		<c:forEach items="${user}" var="s">
+		<c:forEach items="${user}" var="u">
 			<tr>
-				<td><c:out value="${s.id}" /></td>
-				<td><c:out value="${s.name}" /></td>
-				<td><c:out value="${s.email}" /></td>
+				<td><c:out value="${u.id}" /></td>
+				<td><c:out value="${u.name}" /></td>
+				<td><c:out value="${u.email}" /></td>
 				<td>
-					<a href="UpdateSupplierServlet?id=<c:out value="${s.id}" />">Update</a>
-					<a href="DeleteSupplierServlet?id=<c:out value="${s.id}" />">Delete</a>
+					<a href="UpdateUser?id=<c:out value="${u.id}" />">Update</a>
+					<a href="DeleteUser?id=<c:out value="${u.id}" />">Delete</a>
 				</td>
 			</tr>
 		</c:forEach>

@@ -9,18 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import file.dao.UserDAO;
 
-@WebServlet("/ListUser")
-public class ListUser extends HttpServlet {
+@WebServlet("/DeleteUser")
+public class DeleteUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDAO udao;
-	public ListUser() {
+	public DeleteUser() {
 			super();
 			udao = new UserDAO();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("user", UserDAO.listuser());
-		RequestDispatcher view = request.getRequestDispatcher("ListUser.jsp");
-		view.forward(request, response);
+		int delid = Integer.parseInt(request.getParameter("id"));
+		udao.deleteuser(delid);
 	}
 }
