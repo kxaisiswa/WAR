@@ -13,7 +13,7 @@
   <h1>Hello World!</h1>
   <form action="UpdateUser" method="post">
     <label for="">id</label>
-    <input type="text" readonly value="<c:out value="${user.id}" />" >
+    <input type="text" name="id" readonly value="<c:out value="${user.id}" />" >
     <label for="">name</label>
     <input type="text" name="name" value="<c:out value="${user.name}" />">
     <label for="">email</label>
