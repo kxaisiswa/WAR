@@ -36,4 +36,17 @@ public class UserDAO {
 		}
 		return user;
 	}
+
+	public void insertuser(User user) {
+		try {
+			con = DBConnection.getConnection();
+			ps = con.prepareStatement("INSERT INTO person (name, email) VALUES(?, ?)");
+			ps.setString(1, user.getName());
+			ps.setString(2, user.getEmail());
+			ps.execute();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
