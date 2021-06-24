@@ -26,7 +26,7 @@
 				<td><c:out value="${u.name}" /></td>
 				<td><c:out value="${u.email}" /></td>
 				<td>
-					<a href="UpdateUser?id=<c:out value="${u.id}" />">Update</a>
+					<a href="ViewUser?id=<c:out value="${u.id}" />">Update</a>
 					<a href="DeleteUser?id=<c:out value="${u.id}" />">Delete</a>
 				</td>
 			</tr>
