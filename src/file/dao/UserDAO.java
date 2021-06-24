@@ -67,6 +67,7 @@ public class UserDAO {
 		try {
 			con = DBConnection.getConnection();
 			ps = con.prepareStatement("SELECT * FROM person WHERE id = ?");
+			ps.setInt(1, updid);
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
